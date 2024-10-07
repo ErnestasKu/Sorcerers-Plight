@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Power_up" load_steps=2 format=3 uid="uid://co3311lavr3kb"]
+
+[ext_resource type="Script" path="res://Scenes/PowerUp/Power_up.cs" id="1_xyjo1"]
+
+[resource]
+script = ExtResource("1_xyjo1")
+Name = "Max HP up"
+effect = 2
+Description = "Increases players maximum HP by 5"
+Repeatable = true
+Available = true

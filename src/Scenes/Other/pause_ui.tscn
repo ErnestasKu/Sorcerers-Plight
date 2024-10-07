@@ -1,0 +1,222 @@
+[gd_scene load_steps=4 format=3 uid="uid://b53yinn4sg7wc"]
+
+[ext_resource type="Script" path="res://Scenes/Other/pause_ui.cs" id="1_vyv6a"]
+[ext_resource type="SystemFont" uid="uid://djkji45kpbyal" path="res://Scenes/Other/pause_ui_font.tres" id="2_c3b0y"]
+[ext_resource type="Texture2D" uid="uid://kdcrankbiapt" path="res://Assets/Textures/wizard3.png" id="3_o2evw"]
+
+[node name="Pause UI" type="Panel" node_paths=PackedStringArray("MaxHP", "Damage", "Speed", "FireRate")]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vyv6a")
+MaxHP = NodePath("MarginContainer/Background/Margin yellow/ColorRect/Margin purple/ColorRect/HSplitContainer/Margin yellow/ColorRect/Margin data/VBoxContainer/Max HP")
+Damage = NodePath("MarginContainer/Background/Margin yellow/ColorRect/Margin purple/ColorRect/HSplitContainer/Margin yellow/ColorRect/Margin data/VBoxContainer/Damage")
+Speed = NodePath("MarginContainer/Background/Margin yellow/ColorRect/Margin purple/ColorRect/HSplitContainer/Margin yellow/ColorRect/Margin data/VBoxContainer/Speed")
+FireRate = NodePath("MarginContainer/Background/Margin yellow/ColorRect/Margin purple/ColorRect/HSplitContainer/Margin yellow/ColorRect/Margin data/VBoxContainer/Fire rate")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Background" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.870588)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 640.0
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Background/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="MarginContainer/Background/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_c3b0y")
+theme_override_font_sizes/font_size = 150
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Background/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="Resume" type="Button" parent="MarginContainer/Background/MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.705882, 0.776471, 0.254902, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_c3b0y")
+theme_override_font_sizes/font_size = 100
+text = "Resume"
+
+[node name="To main menu" type="Button" parent="MarginContainer/Background/MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.705882, 0.776471, 0.254902, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_c3b0y")
+theme_override_font_sizes/font_size = 100
+text = "Quit"
+
+[node name="Margin yellow" type="MarginContainer" parent="MarginContainer/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 640.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/Background/Margin yellow"]
+layout_mode = 2
+color = Color(1, 0.921569, 0.694118, 1)
+
+[node name="Margin purple" type="MarginContainer" parent="MarginContainer/Background/Margin yellow/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/Background/Margin yellow/ColorRect/Margin purple"]
+layout_mode = 2
+color = Color(0.172549, 0.172549, 0.239216, 1)
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/Background/Margin yellow/ColorRect/Margin purple/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Margin character" type="MarginContainer" parent="MarginContainer/Background/Margin yellow/ColorRect/Margin purple/ColorRect/HSplitContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Character" type="TextureRect" parent="MarginContainer/Background/Margin yellow/ColorRect/Margin purple/ColorRect/HSplitContainer/Margin character"]
+layout_mode = 2
+texture = ExtResource("3_o2evw")
+expand_mode = 3
+
+[node name="Margin yellow" type="MarginContainer" parent="MarginContainer/Background/Margin yellow/ColorRect/Margin purple/ColorRect/HSplitContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/Background/Margin yellow/ColorRect/Margin purple/ColorRect/HSplitContainer/Margin yellow"]
+layout_mode = 2
+color = Color(1, 0.921569, 0.694118, 1)
+
+[node name="Margin data" type="MarginContainer" parent="MarginContainer/Background/Margin yellow/ColorRect/Margin purple/ColorRect/HSplitContainer/Margin yellow/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Background/Margin yellow/ColorRect/Margin purple/ColorRect/HSplitContainer/Margin yellow/ColorRect/Margin data"]
+layout_mode = 2
+alignment = 1
+
+[node name="Max HP" type="Label" parent="MarginContainer/Background/Margin yellow/ColorRect/Margin purple/ColorRect/HSplitContainer/Margin yellow/ColorRect/Margin data/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.588235, 0.0784314, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("2_c3b0y")
+theme_override_font_sizes/font_size = 75
+text = "Max HP"
+horizontal_alignment = 2
+
+[node name="Damage" type="Label" parent="MarginContainer/Background/Margin yellow/ColorRect/Margin purple/ColorRect/HSplitContainer/Margin yellow/ColorRect/Margin data/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.588235, 0.0784314, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("2_c3b0y")
+theme_override_font_sizes/font_size = 75
+text = "Damage"
+horizontal_alignment = 2
+
+[node name="Speed" type="Label" parent="MarginContainer/Background/Margin yellow/ColorRect/Margin purple/ColorRect/HSplitContainer/Margin yellow/ColorRect/Margin data/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.588235, 0.0784314, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("2_c3b0y")
+theme_override_font_sizes/font_size = 75
+text = "Speed"
+horizontal_alignment = 2
+
+[node name="Fire rate" type="Label" parent="MarginContainer/Background/Margin yellow/ColorRect/Margin purple/ColorRect/HSplitContainer/Margin yellow/ColorRect/Margin data/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.588235, 0.0784314, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("2_c3b0y")
+theme_override_font_sizes/font_size = 75
+text = "Fire rate"
+horizontal_alignment = 2
+
+[connection signal="pressed" from="MarginContainer/Background/MarginContainer/VBoxContainer2/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/Background/MarginContainer/VBoxContainer2/VBoxContainer/To main menu" to="." method="_on_quit_pressed"]

@@ -1,0 +1,6 @@
+[gd_resource type="SystemFont" format=3 uid="uid://bpj6b30c7a2u4"]
+
+[resource]
+font_names = PackedStringArray("News706 BT")
+subpixel_positioning = 0
+multichannel_signed_distance_field = true

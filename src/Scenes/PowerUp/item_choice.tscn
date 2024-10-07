@@ -1,0 +1,89 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxncagqi133sd"]
+
+[ext_resource type="Script" path="res://Scenes/PowerUp/item_choice.cs" id="1_piboe"]
+[ext_resource type="SystemFont" uid="uid://bpj6b30c7a2u4" path="res://Scenes/Other/custom_font.tres" id="2_rsf6x"]
+
+[node name="ItemChoice" type="ColorRect" node_paths=PackedStringArray("ItemName", "Description")]
+custom_minimum_size = Vector2(200, 200)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1460.0
+offset_bottom = -700.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+color = Color(0.439216, 0.0313726, 0, 1)
+script = ExtResource("1_piboe")
+ItemName = NodePath("MarginContainer/Item name")
+Description = NodePath("MarginContainer2/Description background/MarginContainer/Item description")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -280.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Item name" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 0.768627, 1)
+theme_override_fonts/font = ExtResource("2_rsf6x")
+theme_override_font_sizes/font_size = 50
+text = "Default name"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Description background" type="ColorRect" parent="MarginContainer2"]
+layout_mode = 2
+mouse_filter = 1
+color = Color(1, 1, 0.768627, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/Description background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Item description" type="Label" parent="MarginContainer2/Description background/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+mouse_filter = 1
+theme_override_colors/font_color = Color(0.196078, 0.168627, 0.47451, 1)
+theme_override_fonts/font = ExtResource("2_rsf6x")
+theme_override_font_sizes/font_size = 32
+text = "Default description does something something blah blah"
+autowrap_mode = 2
+clip_text = true
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

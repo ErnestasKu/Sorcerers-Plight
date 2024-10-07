@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://chg6jghq0sdqa"]
+
+[ext_resource type="PackedScene" uid="uid://cedngylwcsxof" path="res://Scenes/Entity/entity.tscn" id="1_ccti1"]
+[ext_resource type="Script" path="res://Scenes/Entity/Player.cs" id="2_yvo6x"]
+[ext_resource type="Texture2D" uid="uid://kdcrankbiapt" path="res://Assets/Textures/wizard3.png" id="3_qj1dn"]
+[ext_resource type="Texture2D" uid="uid://bjmcu4hil4gnk" path="res://Assets/Textures/caster.png" id="3_xpied"]
+[ext_resource type="AudioStream" uid="uid://4qkynsdokcsm" path="res://Assets/Audio/swing-whoosh-110410.mp3" id="5_bf74m"]
+[ext_resource type="AudioStream" uid="uid://b7nv7ns3nrkxe" path="res://Assets/Audio/fast-simple-chop-5-6270.mp3" id="6_lpclf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kihk2"]
+radius = 7.51665
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ew1e3"]
+radius = 15.0
+
+[node name="Player" node_paths=PackedStringArray("DashSFX", "ShotSFX") instance=ExtResource("1_ccti1")]
+collision_layer = 2
+collision_mask = 21
+script = ExtResource("2_yvo6x")
+DashSFX = NodePath("Dash audio")
+ShotSFX = NodePath("Bullet audio")
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("3_qj1dn")
+
+[node name="Collision" parent="." index="1"]
+scale = Vector2(1.25, 1.25)
+shape = SubResource("CircleShape2D_kihk2")
+
+[node name="Hurtbox" parent="." index="2"]
+collision_layer = 2
+collision_mask = 4
+
+[node name="Hurtbox" parent="Hurtbox" index="0"]
+shape = SubResource("CircleShape2D_ew1e3")
+
+[node name="Caster" type="Node2D" parent="." index="3"]
+position = Vector2(0, 14.54)
+
+[node name="Casterrr" type="Marker2D" parent="Caster" index="0"]
+scale = Vector2(0.918868, 0.29434)
+
+[node name="Sprite2D" type="Sprite2D" parent="Caster/Casterrr" index="0"]
+visible = false
+position = Vector2(0, -3.39743)
+scale = Vector2(1.0883, 3.39743)
+texture = ExtResource("3_xpied")
+
+[node name="Healthbar" type="ProgressBar" parent="." index="4"]
+modulate = Color(0.34902, 0.972549, 0, 1)
+offset_left = -15.0
+offset_top = 32.0
+offset_right = 15.0
+offset_bottom = 62.0
+scale = Vector2(1, 0.1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+show_percentage = false
+
+[node name="Bullet audio" type="AudioStreamPlayer" parent="." index="5"]
+stream = ExtResource("5_bf74m")
+bus = &"SFX"
+
+[node name="Dash audio" type="AudioStreamPlayer" parent="." index="6"]
+stream = ExtResource("6_lpclf")
+bus = &"SFX"

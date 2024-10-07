@@ -1,0 +1,286 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\temp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|c:\\temp\\scenes\\powerup\\powerupdrop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|solutionrelative:scenes\\powerup\\powerupdrop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|c:\\temp\\scenes\\main\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|solutionrelative:scenes\\main\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|c:\\temp\\scenes\\bullet\\bullet_r.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|solutionrelative:scenes\\bullet\\bullet_r.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|c:\\temp\\scenes\\main\\globals.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|solutionrelative:scenes\\main\\globals.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|c:\\temp\\scenes\\entity\\enemyfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|solutionrelative:scenes\\entity\\enemyfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|c:\\temp\\scenes\\entity\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|solutionrelative:scenes\\entity\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|c:\\temp\\scenes\\entity\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|solutionrelative:scenes\\entity\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|c:\\temp\\scenes\\other\\scoresingleton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|solutionrelative:scenes\\other\\scoresingleton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|c:\\temp\\scenes\\main\\game_over.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|solutionrelative:scenes\\main\\game_over.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|c:\\temp\\scenes\\main\\main_menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|solutionrelative:scenes\\main\\main_menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|c:\\temp\\scenes\\entity\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|solutionrelative:scenes\\entity\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|c:\\temp\\scenes\\powerup\\power_up_ui_facade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|solutionrelative:scenes\\powerup\\power_up_ui_facade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|c:\\temp\\scenes\\powerup\\item_choice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|solutionrelative:scenes\\powerup\\item_choice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|c:\\temp\\scenes\\other\\pause_ui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|solutionrelative:scenes\\other\\pause_ui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|c:\\temp\\scenes\\powerup\\power_up.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|solutionrelative:scenes\\powerup\\power_up.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|c:\\temp\\scenes\\powerup\\power_up_proxy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|solutionrelative:scenes\\powerup\\power_up_proxy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Globals.cs",
+              "DocumentMoniker": "C:\\temp\\Scenes\\Main\\Globals.cs",
+              "RelativeDocumentMoniker": "Scenes\\Main\\Globals.cs",
+              "ToolTip": "C:\\temp\\Scenes\\Main\\Globals.cs",
+              "RelativeToolTip": "Scenes\\Main\\Globals.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-11-29T22:04:21.584Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "main.cs",
+              "DocumentMoniker": "C:\\temp\\Scenes\\Main\\main.cs",
+              "RelativeDocumentMoniker": "Scenes\\Main\\main.cs",
+              "ToolTip": "C:\\temp\\Scenes\\Main\\main.cs",
+              "RelativeToolTip": "Scenes\\Main\\main.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-02T21:13:44.085Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\temp\\Scenes\\Entity\\Player.cs",
+              "RelativeDocumentMoniker": "Scenes\\Entity\\Player.cs",
+              "ToolTip": "C:\\temp\\Scenes\\Entity\\Player.cs",
+              "RelativeToolTip": "Scenes\\Entity\\Player.cs",
+              "ViewState": "AQIAAFEAAAAAAAAAAAAqwGkAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-02T19:03:04.558Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Entity.cs",
+              "DocumentMoniker": "C:\\temp\\Scenes\\Entity\\Entity.cs",
+              "RelativeDocumentMoniker": "Scenes\\Entity\\Entity.cs",
+              "ToolTip": "C:\\temp\\Scenes\\Entity\\Entity.cs",
+              "RelativeToolTip": "Scenes\\Entity\\Entity.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-09T23:50:41.826Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "bullet_r.cs",
+              "DocumentMoniker": "C:\\temp\\Scenes\\Bullet\\bullet_r.cs",
+              "RelativeDocumentMoniker": "Scenes\\Bullet\\bullet_r.cs",
+              "ToolTip": "C:\\temp\\Scenes\\Bullet\\bullet_r.cs",
+              "RelativeToolTip": "Scenes\\Bullet\\bullet_r.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAxwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-06T22:09:30.405Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EnemyFactory.cs",
+              "DocumentMoniker": "C:\\temp\\Scenes\\Entity\\EnemyFactory.cs",
+              "RelativeDocumentMoniker": "Scenes\\Entity\\EnemyFactory.cs",
+              "ToolTip": "C:\\temp\\Scenes\\Entity\\EnemyFactory.cs",
+              "RelativeToolTip": "Scenes\\Entity\\EnemyFactory.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-18T17:24:43.414Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ScoreSingleton.cs",
+              "DocumentMoniker": "C:\\temp\\Scenes\\Other\\ScoreSingleton.cs",
+              "RelativeDocumentMoniker": "Scenes\\Other\\ScoreSingleton.cs",
+              "ToolTip": "C:\\temp\\Scenes\\Other\\ScoreSingleton.cs",
+              "RelativeToolTip": "Scenes\\Other\\ScoreSingleton.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-17T18:42:29.941Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "power_up_ui_facade.cs",
+              "DocumentMoniker": "C:\\temp\\Scenes\\PowerUp\\power_up_ui_facade.cs",
+              "RelativeDocumentMoniker": "Scenes\\PowerUp\\power_up_ui_facade.cs",
+              "ToolTip": "C:\\temp\\Scenes\\PowerUp\\power_up_ui_facade.cs",
+              "RelativeToolTip": "Scenes\\PowerUp\\power_up_ui_facade.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-16T12:30:13.1Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "pause_ui.cs",
+              "DocumentMoniker": "C:\\temp\\Scenes\\Other\\pause_ui.cs",
+              "RelativeDocumentMoniker": "Scenes\\Other\\pause_ui.cs",
+              "ToolTip": "C:\\temp\\Scenes\\Other\\pause_ui.cs",
+              "RelativeToolTip": "Scenes\\Other\\pause_ui.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAADsAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-14T02:24:08.773Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PowerUpDrop.cs",
+              "DocumentMoniker": "C:\\temp\\Scenes\\PowerUp\\PowerUpDrop.cs",
+              "RelativeDocumentMoniker": "Scenes\\PowerUp\\PowerUpDrop.cs",
+              "ToolTip": "C:\\temp\\Scenes\\PowerUp\\PowerUpDrop.cs",
+              "RelativeToolTip": "Scenes\\PowerUp\\PowerUpDrop.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-17T12:59:39.724Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "item_choice.cs",
+              "DocumentMoniker": "C:\\temp\\Scenes\\PowerUp\\item_choice.cs",
+              "RelativeDocumentMoniker": "Scenes\\PowerUp\\item_choice.cs",
+              "ToolTip": "C:\\temp\\Scenes\\PowerUp\\item_choice.cs",
+              "RelativeToolTip": "Scenes\\PowerUp\\item_choice.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACgAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-17T12:43:53.751Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "main_menu.cs",
+              "DocumentMoniker": "C:\\temp\\Scenes\\Main\\main_menu.cs",
+              "RelativeDocumentMoniker": "Scenes\\Main\\main_menu.cs",
+              "ToolTip": "C:\\temp\\Scenes\\Main\\main_menu.cs",
+              "RelativeToolTip": "Scenes\\Main\\main_menu.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAACMAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-17T06:55:26.842Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "power_up_proxy.cs",
+              "DocumentMoniker": "C:\\temp\\Scenes\\PowerUp\\power_up_proxy.cs",
+              "RelativeDocumentMoniker": "Scenes\\PowerUp\\power_up_proxy.cs",
+              "ToolTip": "C:\\temp\\Scenes\\PowerUp\\power_up_proxy.cs",
+              "RelativeToolTip": "Scenes\\PowerUp\\power_up_proxy.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-16T14:44:30.456Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Power_up.cs",
+              "DocumentMoniker": "C:\\temp\\Scenes\\PowerUp\\Power_up.cs",
+              "RelativeDocumentMoniker": "Scenes\\PowerUp\\Power_up.cs",
+              "ToolTip": "C:\\temp\\Scenes\\PowerUp\\Power_up.cs",
+              "RelativeToolTip": "Scenes\\PowerUp\\Power_up.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-14T04:21:03.911Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Enemy.cs",
+              "DocumentMoniker": "C:\\temp\\Scenes\\Entity\\Enemy.cs",
+              "RelativeDocumentMoniker": "Scenes\\Entity\\Enemy.cs",
+              "ToolTip": "C:\\temp\\Scenes\\Entity\\Enemy.cs",
+              "RelativeToolTip": "Scenes\\Entity\\Enemy.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-09T23:55:56.416Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "game_over.cs",
+              "DocumentMoniker": "C:\\temp\\Scenes\\Main\\game_over.cs",
+              "RelativeDocumentMoniker": "Scenes\\Main\\game_over.cs",
+              "ToolTip": "C:\\temp\\Scenes\\Main\\game_over.cs",
+              "RelativeToolTip": "Scenes\\Main\\game_over.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-14T09:59:51.743Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

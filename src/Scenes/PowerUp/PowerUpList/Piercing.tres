@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Power_up" load_steps=2 format=3 uid="uid://li6owavw6et3"]
+
+[ext_resource type="Script" path="res://Scenes/PowerUp/Power_up.cs" id="1_307fk"]
+
+[resource]
+script = ExtResource("1_307fk")
+Name = "Piercing"
+effect = 6
+Description = "Player bullets now pierce through enemies"
+Repeatable = false
+Available = true

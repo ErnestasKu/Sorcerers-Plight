@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Power_up" load_steps=2 format=3 uid="uid://b16r7blplb41s"]
+
+[ext_resource type="Script" path="res://Scenes/PowerUp/Power_up.cs" id="1_k86xp"]
+
+[resource]
+script = ExtResource("1_k86xp")
+Name = "Damage up"
+effect = 3
+Description = "Player bullets receive a +2 damage increase"
+Repeatable = true
+Available = true

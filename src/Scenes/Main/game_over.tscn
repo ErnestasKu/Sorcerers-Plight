@@ -1,0 +1,100 @@
+[gd_scene load_steps=5 format=3 uid="uid://blho7rltnyt1u"]
+
+[ext_resource type="Script" path="res://Scenes/Main/game_over.cs" id="1_p2ci2"]
+[ext_resource type="Texture2D" uid="uid://lbuladjkp3vu" path="res://Assets/Textures/main_menu.jpg" id="2_ki2o1"]
+[ext_resource type="SystemFont" uid="uid://djkji45kpbyal" path="res://Scenes/Other/pause_ui_font.tres" id="2_vy7to"]
+
+[sub_resource type="SystemFont" id="SystemFont_jbfhk"]
+font_names = PackedStringArray("Sitka Small")
+subpixel_positioning = 0
+
+[node name="game_over" type="Control" node_paths=PackedStringArray("Scoreboard")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p2ci2")
+Scoreboard = NodePath("MarginContainer/VBoxContainer/Scoreboard")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ki2o1")
+expand_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Game over" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = SubResource("SystemFont_jbfhk")
+theme_override_font_sizes/font_size = 200
+text = "Game over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Scoreboard" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vy7to")
+theme_override_font_sizes/font_size = 75
+text = "SCORE:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Restart" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_vy7to")
+theme_override_font_sizes/font_size = 150
+text = "Restart"
+
+[node name="To main menu" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_vy7to")
+theme_override_font_sizes/font_size = 150
+text = "Main menu"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_vy7to")
+theme_override_font_sizes/font_size = 150
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/To main menu" to="." method="_on_to_main_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

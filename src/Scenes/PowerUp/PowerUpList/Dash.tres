@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Power_up" load_steps=2 format=3 uid="uid://gxjl4u0x6b17"]
+
+[ext_resource type="Script" path="res://Scenes/PowerUp/Power_up.cs" id="1_wx2iy"]
+
+[resource]
+script = ExtResource("1_wx2iy")
+Name = "Dash"
+effect = 7
+Description = "Bestows the ability to dash through enemies"
+Repeatable = false
+Available = true

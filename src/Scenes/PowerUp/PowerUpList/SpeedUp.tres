@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Power_up" load_steps=2 format=3 uid="uid://bqofbqyeygi1t"]
+
+[ext_resource type="Script" path="res://Scenes/PowerUp/Power_up.cs" id="1_idyxo"]
+
+[resource]
+script = ExtResource("1_idyxo")
+Name = "Speed up"
+effect = 4
+Description = "Increases player speed by 0.2"
+Repeatable = true
+Available = true

@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://bq2tghpadjyvk"]
+
+[ext_resource type="PackedScene" uid="uid://bint70d4gt2mp" path="res://Scenes/Entity/enemy.tscn" id="1_skev5"]
+[ext_resource type="Script" path="res://Scenes/Enemies/SpeedyEnemy.cs" id="2_ay3uk"]
+[ext_resource type="Texture2D" uid="uid://g63mycjfbdl0" path="res://Assets/Textures/bat.png" id="2_vlke0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6qwgy"]
+radius = 3.04138
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0c8yh"]
+radius = 9.99998
+height = 48.0
+
+[node name="Speedy enemy" instance=ExtResource("1_skev5")]
+script = ExtResource("2_ay3uk")
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("2_vlke0")
+
+[node name="Collision" parent="." index="1"]
+position = Vector2(0, 0)
+shape = SubResource("CircleShape2D_6qwgy")
+
+[node name="Hurtbox" parent="Hurtbox" index="0"]
+position = Vector2(1, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0c8yh")
+
+[node name="Healthbar" parent="." index="3"]
+offset_top = 17.0
+offset_bottom = 47.0

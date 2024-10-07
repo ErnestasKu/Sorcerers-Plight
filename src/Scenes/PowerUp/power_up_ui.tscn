@@ -1,0 +1,81 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3it3j2v6w04"]
+
+[ext_resource type="Script" path="res://Scenes/PowerUp/power_up_ui_facade.cs" id="1_mvcp0"]
+[ext_resource type="PackedScene" uid="uid://dxncagqi133sd" path="res://Scenes/PowerUp/item_choice.tscn" id="2_s7qgb"]
+
+[node name="Power Up UI" type="Panel" node_paths=PackedStringArray("IC1", "IC2", "IC3")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mvcp0")
+IC1 = NodePath("MarginContainer/ColorRect/MarginContainer2/Item select/ItemChoice1")
+IC2 = NodePath("MarginContainer/ColorRect/MarginContainer2/Item select/ItemChoice2")
+IC3 = NodePath("MarginContainer/ColorRect/MarginContainer2/Item select/ItemChoice3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 200
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.721569)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -456.0
+offset_right = 456.0
+offset_bottom = 200.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Pick your ability"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Item select" type="HBoxContainer" parent="MarginContainer/ColorRect/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ItemChoice1" parent="MarginContainer/ColorRect/MarginContainer2/Item select" instance=ExtResource("2_s7qgb")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="ItemChoice2" parent="MarginContainer/ColorRect/MarginContainer2/Item select" instance=ExtResource("2_s7qgb")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="ItemChoice3" parent="MarginContainer/ColorRect/MarginContainer2/Item select" instance=ExtResource("2_s7qgb")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1

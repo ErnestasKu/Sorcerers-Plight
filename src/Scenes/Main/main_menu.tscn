@@ -1,0 +1,172 @@
+[gd_scene load_steps=6 format=3 uid="uid://cr3pbeg4neako"]
+
+[ext_resource type="Texture2D" uid="uid://lbuladjkp3vu" path="res://Assets/Textures/main_menu.jpg" id="1_ixy17"]
+[ext_resource type="Script" path="res://Scenes/Main/main_menu.cs" id="1_vdbm8"]
+[ext_resource type="SystemFont" uid="uid://djkji45kpbyal" path="res://Scenes/Other/pause_ui_font.tres" id="3_wcbtq"]
+[ext_resource type="SystemFont" uid="uid://bpj6b30c7a2u4" path="res://Scenes/Other/custom_font.tres" id="4_58kmt"]
+
+[sub_resource type="SystemFont" id="SystemFont_7jdgu"]
+font_names = PackedStringArray("Sitka Small")
+subpixel_positioning = 0
+
+[node name="Main menu" type="Control" node_paths=PackedStringArray("Menu", "Options", "MasterSlider", "MusicSlider", "SFXSlider")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_vdbm8")
+Menu = NodePath("MarginContainer/Menu container")
+Options = NodePath("MarginContainer/Options container")
+MasterSlider = NodePath("MarginContainer/Options container/GridContainer/Master slider")
+MusicSlider = NodePath("MarginContainer/Options container/GridContainer/Music slider")
+SFXSlider = NodePath("MarginContainer/Options container/GridContainer/SFX  slider")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ixy17")
+expand_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Menu container" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="MarginContainer/Menu container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85098, 0.309804, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = SubResource("SystemFont_7jdgu")
+theme_override_font_sizes/font_size = 200
+text = "Sorcerer's plight"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Menu container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Play" type="Button" parent="MarginContainer/Menu container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(1, 0.52549, 0.14902, 1)
+theme_override_fonts/font = ExtResource("3_wcbtq")
+theme_override_font_sizes/font_size = 150
+text = "Play"
+
+[node name="Options" type="Button" parent="MarginContainer/Menu container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_hover_color = Color(1, 0.52549, 0.14902, 1)
+theme_override_fonts/font = ExtResource("3_wcbtq")
+theme_override_font_sizes/font_size = 150
+text = "Options"
+
+[node name="Quit" type="Button" parent="MarginContainer/Menu container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_hover_color = Color(1, 0.52549, 0.14902, 1)
+theme_override_fonts/font = ExtResource("3_wcbtq")
+theme_override_font_sizes/font_size = 150
+text = "Quit"
+
+[node name="Options container" type="VBoxContainer" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Audio label" type="Label" parent="MarginContainer/Options container"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_58kmt")
+theme_override_font_sizes/font_size = 75
+text = "Audio"
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/Options container"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/h_separation = 50
+columns = 2
+
+[node name="Master label" type="Label" parent="MarginContainer/Options container/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_58kmt")
+theme_override_font_sizes/font_size = 75
+text = "Master"
+
+[node name="Master slider" type="HSlider" parent="MarginContainer/Options container/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="SFX label" type="Label" parent="MarginContainer/Options container/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_58kmt")
+theme_override_font_sizes/font_size = 75
+text = "SFX"
+
+[node name="SFX  slider" type="HSlider" parent="MarginContainer/Options container/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Music label" type="Label" parent="MarginContainer/Options container/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_58kmt")
+theme_override_font_sizes/font_size = 75
+text = "Music"
+
+[node name="Music slider" type="HSlider" parent="MarginContainer/Options container/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Back" type="Button" parent="MarginContainer/Options container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_colors/font_hover_color = Color(1, 0.52549, 0.14902, 1)
+theme_override_fonts/font = ExtResource("3_wcbtq")
+theme_override_font_sizes/font_size = 150
+text = "Back"
+
+[connection signal="pressed" from="MarginContainer/Menu container/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/Menu container/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/Menu container/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="value_changed" from="MarginContainer/Options container/GridContainer/Master slider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/Options container/GridContainer/SFX  slider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/Options container/GridContainer/Music slider" to="." method="_on_music_slider_value_changed"]
+[connection signal="pressed" from="MarginContainer/Options container/Back" to="." method="_on_back_pressed"]

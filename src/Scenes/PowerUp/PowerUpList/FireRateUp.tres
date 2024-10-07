@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Power_up" load_steps=2 format=3 uid="uid://dbt5b7c4pqmau"]
+
+[ext_resource type="Script" path="res://Scenes/PowerUp/Power_up.cs" id="1_o8fxh"]
+
+[resource]
+script = ExtResource("1_o8fxh")
+Name = "Fire rate up"
+effect = 5
+Description = "Decreases player's fire rate delay by -0.1 seconds (up to 0.1)"
+Repeatable = true
+Available = true
