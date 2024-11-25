@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/the-final-boss-battle-158700.mp3-9a0bf7c55c2a
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

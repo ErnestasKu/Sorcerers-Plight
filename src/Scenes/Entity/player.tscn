@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://chg6jghq0sdqa"]
+[gd_scene load_steps=10 format=3 uid="uid://chg6jghq0sdqa"]
 
 [ext_resource type="PackedScene" uid="uid://cedngylwcsxof" path="res://Scenes/Entity/entity.tscn" id="1_ccti1"]
 [ext_resource type="Script" path="res://Scenes/Entity/Player.cs" id="2_yvo6x"]
+[ext_resource type="PackedScene" uid="uid://dskhpv4o21su6" path="res://Scenes/FX/dashEffect.tscn" id="3_g6rle"]
 [ext_resource type="Texture2D" uid="uid://kdcrankbiapt" path="res://Assets/Textures/wizard3.png" id="3_qj1dn"]
 [ext_resource type="Texture2D" uid="uid://bjmcu4hil4gnk" path="res://Assets/Textures/caster.png" id="3_xpied"]
 [ext_resource type="AudioStream" uid="uid://4qkynsdokcsm" path="res://Assets/Audio/swing-whoosh-110410.mp3" id="5_bf74m"]
@@ -13,12 +14,17 @@ radius = 7.51665
 [sub_resource type="CircleShape2D" id="CircleShape2D_ew1e3"]
 radius = 15.0
 
-[node name="Player" node_paths=PackedStringArray("DashSFX", "ShotSFX") instance=ExtResource("1_ccti1")]
+[node name="Player" node_paths=PackedStringArray("DashTimer", "DashCooldownTimer", "DashGhostTimer", "DashSFX", "ShotSFX", "Sprite") instance=ExtResource("1_ccti1")]
 collision_layer = 2
 collision_mask = 21
 script = ExtResource("2_yvo6x")
+DashTimer = NodePath("Dash timer")
+DashCooldownTimer = NodePath("Dash cooldown timer")
+DashGhostTimer = NodePath("Dash ghost timer")
 DashSFX = NodePath("Dash audio")
 ShotSFX = NodePath("Bullet audio")
+DashScene = ExtResource("3_g6rle")
+Sprite = NodePath("Sprite")
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource("3_qj1dn")
@@ -27,14 +33,25 @@ texture = ExtResource("3_qj1dn")
 scale = Vector2(1.25, 1.25)
 shape = SubResource("CircleShape2D_kihk2")
 
-[node name="Hurtbox" parent="." index="2"]
+[node name="Dash timer" type="Timer" parent="." index="2"]
+wait_time = 0.2
+one_shot = true
+
+[node name="Dash cooldown timer" type="Timer" parent="." index="3"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Dash ghost timer" type="Timer" parent="." index="4"]
+wait_time = 0.01
+
+[node name="Hurtbox" parent="." index="5"]
 collision_layer = 2
 collision_mask = 4
 
 [node name="Hurtbox" parent="Hurtbox" index="0"]
 shape = SubResource("CircleShape2D_ew1e3")
 
-[node name="Caster" type="Node2D" parent="." index="3"]
+[node name="Caster" type="Node2D" parent="." index="6"]
 position = Vector2(0, 14.54)
 
 [node name="Casterrr" type="Marker2D" parent="Caster" index="0"]
@@ -46,7 +63,7 @@ position = Vector2(0, -3.39743)
 scale = Vector2(1.0883, 3.39743)
 texture = ExtResource("3_xpied")
 
-[node name="Healthbar" type="ProgressBar" parent="." index="4"]
+[node name="Healthbar" type="ProgressBar" parent="." index="7"]
 modulate = Color(0.34902, 0.972549, 0, 1)
 offset_left = -15.0
 offset_top = 32.0
@@ -56,10 +73,14 @@ scale = Vector2(1, 0.1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 show_percentage = false
 
-[node name="Bullet audio" type="AudioStreamPlayer" parent="." index="5"]
+[node name="Bullet audio" type="AudioStreamPlayer" parent="." index="8"]
 stream = ExtResource("5_bf74m")
 bus = &"SFX"
 
-[node name="Dash audio" type="AudioStreamPlayer" parent="." index="6"]
+[node name="Dash audio" type="AudioStreamPlayer" parent="." index="9"]
 stream = ExtResource("6_lpclf")
 bus = &"SFX"
+
+[connection signal="timeout" from="Dash timer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="Dash cooldown timer" to="." method="_on_dash_cooldown_timer_timeout"]
+[connection signal="timeout" from="Dash ghost timer" to="." method="_on_dash_repeat_timer_timeout"]

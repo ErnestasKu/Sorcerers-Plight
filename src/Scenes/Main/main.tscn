@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c48pu54p05kv4"]
+[gd_scene load_steps=14 format=3 uid="uid://c48pu54p05kv4"]
 
 [ext_resource type="Script" path="res://Scenes/Main/main.cs" id="1_l0j83"]
 [ext_resource type="Texture2D" uid="uid://ribrdb6xh5k" path="res://Assets/Textures/background_blue_path.png" id="2_7dv5k"]
@@ -6,12 +6,24 @@
 [ext_resource type="PackedScene" uid="uid://chg6jghq0sdqa" path="res://Scenes/Entity/player.tscn" id="5_mgvr8"]
 [ext_resource type="Texture2D" uid="uid://bjmcu4hil4gnk" path="res://Assets/Textures/caster.png" id="6_6o4cq"]
 [ext_resource type="PackedScene" uid="uid://ck4qcmutoyy2f" path="res://Scenes/PowerUp/power_up.tscn" id="6_ka33i"]
+[ext_resource type="Shader" path="res://Scenes/FX/proc_thing.gdshader" id="6_u8lg6"]
 [ext_resource type="PackedScene" uid="uid://d3it3j2v6w04" path="res://Scenes/PowerUp/power_up_ui.tscn" id="7_5hb3p"]
 [ext_resource type="PackedScene" uid="uid://b53yinn4sg7wc" path="res://Scenes/Other/pause_ui.tscn" id="7_vrsmd"]
 [ext_resource type="AudioStream" uid="uid://cqj3krkb01rvm" path="res://Assets/Audio/the-final-boss-battle-158700.mp3" id="9_ek306"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4t8pf"]
+shader = ExtResource("6_u8lg6")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5bbdh"]
 size = Vector2(35, 5)
+
+[sub_resource type="Environment" id="Environment_qavxc"]
+background_mode = 3
+tonemap_mode = 3
+glow_enabled = true
+glow_levels/3 = 0.0
+glow_levels/4 = 1.0
+glow_levels/5 = 0.0
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("Scoreboard")]
 script = ExtResource("1_l0j83")
@@ -59,8 +71,22 @@ visible = false
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
+[node name="Testing" type="ColorRect" parent="CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_4t8pf")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Pause UI" parent="CanvasLayer" instance=ExtResource("7_vrsmd")]
 visible = false
+offset_left = 578.0
+offset_top = 328.0
+offset_right = 578.0
+offset_bottom = 328.0
+scale = Vector2(0.4, 0.4)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
@@ -77,6 +103,7 @@ scale = Vector2(1.0883, 3.39743)
 texture = ExtResource("6_6o4cq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
 limit_left = -5000
 limit_top = -5000
 limit_right = 5000
@@ -85,6 +112,7 @@ editor_draw_limits = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("powerUpUI") instance=ExtResource("5_mgvr8")]
 powerUpUI = NodePath("../CanvasLayer/Power Up UI")
+DashScene = null
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -119,3 +147,6 @@ shape = SubResource("RectangleShape2D_5bbdh")
 position = Vector2(0, 5000)
 scale = Vector2(300, 10)
 shape = SubResource("RectangleShape2D_5bbdh")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qavxc")

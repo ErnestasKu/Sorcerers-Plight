@@ -10,19 +10,30 @@ public partial class Player : Entity
     public float Range = 2;
     private double FireRateCooldown = 1;
 
-    private double DashCooldown = 1;
-    private double ActiveDashCooldown = 0;
+    //private double DashCooldown = 1;
+    //private double ActiveDashCooldown = 0;
+    private float dashSpeed = 1500;
+    public bool CanDash = true;
+    private bool IsDashing = false;
 
     private double HPRegenDelay = 3;
     private double ActiveHPRegenDelay = 1;
     private double HPRegenAmount = 0.1;
 
+    private float MoveSpeed;
+
     //bullet caster
     private PackedScene bulletScene;
     private Node2D caster;
+    [Export] private Timer DashTimer;
+    [Export] private Timer DashCooldownTimer;
+    [Export] private Timer DashGhostTimer;
     [Export] private power_up_ui_facade powerUpUI;
     [Export] private AudioStreamPlayer DashSFX;
     [Export] private AudioStreamPlayer ShotSFX;
+
+    [Export] private PackedScene DashScene;
+    [Export] private Sprite2D Sprite;
 
     //other
     public bool hasPiercing = false;
@@ -41,10 +52,11 @@ public partial class Player : Entity
     {
         Globals.player = this;
         Damage = 4;
-        Speed = Speed * 100;
+        Speed = 200;
         base._Ready();
         caster = (Godot.Node2D)GetNode("Caster");
         bulletScene = GD.Load<PackedScene>("res://Scenes/Bullet/bullet.tscn");
+        DashScene = GD.Load<PackedScene>("res://Scenes/FX/dashEffect.tscn");
     }
 
     // Allows movement in 4 cardinal directions
@@ -54,17 +66,23 @@ public partial class Player : Entity
         {
             Vector2 velocity = Velocity;
 
+            if (IsDashing)
+                MoveSpeed = dashSpeed;
+            else
+                MoveSpeed = Speed;
+
+
             // Get the input direction and handle the movement/deceleration.
             Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
             if (direction != Vector2.Zero)
             {
-                velocity.X = direction.X * Speed;
-                velocity.Y = direction.Y * Speed;
+                velocity.X = direction.X * MoveSpeed;
+                velocity.Y = direction.Y * MoveSpeed;
             }
             else
             {
-                velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-                velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Speed);
+                velocity.X = Mathf.MoveToward(Velocity.X, 0, MoveSpeed);
+                velocity.Y = Mathf.MoveToward(Velocity.Y, 0, MoveSpeed);
             }
             Velocity = velocity;
             caster.GlobalPosition = Position;
@@ -103,25 +121,42 @@ public partial class Player : Entity
     // Dashes past enemies while making player briefly invincible
     private void Dash(double delta)
     {
-        if (hasDash)
+        if (Input.IsActionJustPressed("Dash")
+            //&& DashCooldown <= 0
+            && CanDash
+            && hasDash)
         {
-            DashCooldown -= delta;
-            if (Input.IsActionJustPressed("Dash") && DashCooldown <= 0)
-            {
-                DashCooldown = 1;
-                IsMobile = false;
-                IsDamageable = false;
-                SetCollisionMaskValue(3, false);
-
-                DashSFX.Play();
-                Velocity = Velocity * 75;
-                MoveAndSlide();
-
-                IsMobile = true;
-                IsDamageable = true;
-                SetCollisionMaskValue(3, true);
-            }
+            CanDash = false;
+            IsDashing = true;
+            DashTimer.Start();
+            DashGhostTimer.Start();
         }
+    }
+
+    private void InstantiateGhost()
+    {
+        DashEffect ghost = DashScene.Instantiate<DashEffect>();
+        GetParent().AddChild(ghost);
+
+        ghost.GlobalPosition = GlobalPosition;
+        ghost.Texture = Sprite.Texture;
+    }
+
+    public void _on_dash_timer_timeout()
+    {
+        IsDashing = false;
+        DashGhostTimer.Stop();
+        DashCooldownTimer.Start();
+    }
+
+    public void _on_dash_cooldown_timer_timeout()
+    {
+        CanDash = true;
+    }
+
+    public void _on_dash_repeat_timer_timeout()
+    {
+        InstantiateGhost();
     }
 
     // Activates player level up function
@@ -139,6 +174,9 @@ public partial class Player : Entity
 
     public override void TakeDamage(double damage)
     {
+        if (IsDashing)
+            return;
+
         ResetHPRegenDelay();
         base.TakeDamage(damage);
     }

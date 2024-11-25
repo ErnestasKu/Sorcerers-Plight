@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://dskhpv4o21su6"]
+
+[ext_resource type="Script" path="res://Scenes/FX/DashEffect.cs" id="1_d5wsw"]
+[ext_resource type="Shader" path="res://Scenes/FX/GhostShader.gdshader" id="1_iw2fx"]
+[ext_resource type="Texture2D" uid="uid://kdcrankbiapt" path="res://Assets/Textures/wizard3.png" id="1_k1iwb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_emwm7"]
+shader = ExtResource("1_iw2fx")
+shader_parameter/speed = 1.0
+
+[node name="dashEffect" type="Sprite2D"]
+z_index = -2
+material = SubResource("ShaderMaterial_emwm7")
+texture = ExtResource("1_k1iwb")
+script = ExtResource("1_d5wsw")
