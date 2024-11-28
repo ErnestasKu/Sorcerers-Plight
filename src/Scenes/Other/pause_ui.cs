@@ -39,9 +39,9 @@ public partial class pause_ui : Panel
     public void UpdateStats()
     {
         MaxHP.Text = "Max HP: " + Globals.player.MaxHP.ToString();
-        Damage.Text = "Damage: " + Globals.player.Damage.ToString();
-        Speed.Text = "Speed: " + (Math.Round(Globals.player.Speed / 100, 1)).ToString();
-        FireRate.Text = "Fire rate: " + (Math.Round(Globals.player.FireRate, 1)).ToString();
+        Damage.Text = "Damage: " + Math.Round(Globals.player.Damage, 1).ToString();
+        Speed.Text = "Speed: " + Math.Round(Globals.player.Speed / 100, 1).ToString();
+        FireRate.Text = "Fire rate: " + Math.Round(Globals.player.FireRate, 1).ToString();
     }
 
     public void Disable()

@@ -1,21 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://6sopw6gnkdwa"]
+[gd_scene load_steps=5 format=3 uid="uid://6sopw6gnkdwa"]
 
 [ext_resource type="Script" path="res://Scenes/FX/BloodSplatter.cs" id="1_0euwq"]
 [ext_resource type="Texture2D" uid="uid://clmp0he7xxkws" path="res://Scenes/FX/blood_texture.png" id="1_evotf"]
+
+[sub_resource type="Curve" id="Curve_5mosk"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.842105), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_7rudt"]
+interpolation_mode = 2
 
 [node name="blood_splatter" type="CPUParticles2D" node_paths=PackedStringArray("fadeTimer")]
 z_index = -5
 amount = 32
 lifetime = 0.2
-explosiveness = 1.0
+explosiveness = 0.7
 texture = ExtResource("1_evotf")
-spread = 28.0
+spread = 50.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 10.0
 initial_velocity_max = 400.0
-scale_amount_min = 0.1
-scale_amount_max = 0.5
+scale_amount_min = 0.3
+scale_amount_max = 0.9
+scale_amount_curve = SubResource("Curve_5mosk")
 color = Color(0.517647, 0.054902, 0.0588235, 1)
+color_ramp = SubResource("Gradient_7rudt")
 script = ExtResource("1_0euwq")
 fadeTimer = NodePath("Timer fade")
 

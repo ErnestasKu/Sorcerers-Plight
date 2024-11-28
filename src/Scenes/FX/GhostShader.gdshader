@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 // -- Speed of hue shift
-uniform float speed : hint_range(0.1, 10.0) = 3.0;
+uniform float speed : hint_range(0.1, 10.0) = 1.0;
 
 
 void fragment() {
@@ -67,5 +67,5 @@ void fragment() {
     }
 
     // -- Output the final color 
-    COLOR = vec4(rgb + m, input.a);
+    COLOR = vec4(rgb + m, input.a * 0.3);
 }

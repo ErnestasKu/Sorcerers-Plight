@@ -18,7 +18,8 @@ public partial class Player : Entity
 
     private double HPRegenDelay = 3;
     private double ActiveHPRegenDelay = 1;
-    private double HPRegenAmount = 0.1;
+    private double HPRegenAmount = 0.02;
+    private bool healParticlesEnabled = false;
 
     private float MoveSpeed;
 
@@ -28,6 +29,11 @@ public partial class Player : Entity
     [Export] private Timer DashTimer;
     [Export] private Timer DashCooldownTimer;
     [Export] private Timer DashGhostTimer;
+
+    [Export] private Timer HealDelayTimer;
+    [Export] private Timer HealTickTimer;
+    [Export] private HealGlow HealEffect;
+
     [Export] private power_up_ui_facade powerUpUI;
     [Export] private AudioStreamPlayer DashSFX;
     [Export] private AudioStreamPlayer ShotSFX;
@@ -43,7 +49,13 @@ public partial class Player : Entity
     {
         Dash(delta);
         Shoot(delta);
-        RegenerateHP(delta);
+        //RegenerateHP(delta);
+        if (HP < MaxHP && HealDelayTimer.IsStopped())
+        {
+            HealDelayTimer.Start();
+            Console.WriteLine("Timer started!!!!!!!!!!!!!!!!!!!");
+
+        }
         UpdateHealthbar();
         Move();
     }
@@ -159,17 +171,52 @@ public partial class Player : Entity
         InstantiateGhost();
     }
 
-    // Activates player level up function
-    public void RegenerateHP(double delta)
-    {
-        ActiveHPRegenDelay -= delta;
-        if (ActiveHPRegenDelay <= 0 && HP < MaxHP)
-            HP += HPRegenAmount;
-    }
+    //// Activates player level up function
+    //public void RegenerateHP(double delta)
+    //{
+    //    ActiveHPRegenDelay -= delta;
+    //    if (ActiveHPRegenDelay <= 0 && HP < MaxHP)
+    //    {
+    //        HP += HPRegenAmount;
+    //        healParticlesEnabled = true;
+    //    }
+    //}
 
     public void ResetHPRegenDelay()
     {
-        ActiveHPRegenDelay = HPRegenDelay;
+        HealDelayTimer.Stop();
+        HealDelayTimer.Start();
+        HealTickTimer.Stop();
+        //ActiveHPRegenDelay = HPRegenDelay;
+    }
+
+    public void _on_heal_tick_timer_timeout()
+    {
+        double hp = MaxHP * HPRegenAmount;
+
+        if (MaxHP - HP <= hp)
+        {
+            HP = MaxHP;
+            HealTickTimer.Stop();
+            HealEffect.StopHealParticles();
+        }
+        else
+            HP += hp;
+    }
+
+    public void _on_heal_delay_timer_timeout()
+    {
+        HealDelayTimer.Stop();
+        BeginHealthRegen();
+    }
+
+    public void BeginHealthRegen()
+    {
+        if (HealTickTimer.IsStopped())
+        {
+            HealTickTimer.Start();
+            HealEffect.StartHealParticles();
+        }
     }
 
     public override void TakeDamage(double damage)

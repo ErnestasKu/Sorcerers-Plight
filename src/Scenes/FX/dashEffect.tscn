@@ -6,7 +6,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_emwm7"]
 shader = ExtResource("1_iw2fx")
-shader_parameter/speed = 1.0
+shader_parameter/speed = 4.0
 
 [node name="dashEffect" type="Sprite2D"]
 z_index = -2

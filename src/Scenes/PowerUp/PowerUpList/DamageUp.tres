@@ -6,6 +6,6 @@
 script = ExtResource("1_k86xp")
 Name = "Damage up"
 effect = 3
-Description = "Player bullets receive a +2 damage increase"
+Description = "Player bullets receive a 30% damage increase"
 Repeatable = true
 Available = true

@@ -31,12 +31,13 @@ public partial class Power_up : Resource
         {
             case Effect.Piercing:
                 player.hasPiercing = true;
+                player.Damage /= 5;
                 break;
             case Effect.Dash:
                 player.hasDash = true;
                 break;
             case Effect.DamageUp:
-                player.Damage += 2;
+                player.Damage *= 1.3;
                 break;
             case Effect.MaxHPUp:
                 player.MaxHP += 5;
