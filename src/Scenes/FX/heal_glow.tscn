@@ -35,10 +35,10 @@ local_coords = true
 texture = ExtResource("2_2mimk")
 emission_shape = 1
 emission_sphere_radius = 25.0
-gravity = Vector2(0, -70)
+gravity = Vector2(0, -100)
 scale_amount_min = 0.01
 scale_amount_max = 0.03
-color = Color(1, 0.85098, 0, 1)
+color = Color(1, 2, 1, 1)
 color_ramp = SubResource("Gradient_wc0k2")
 
 [node name="Vortex" type="CPUParticles2D" parent="."]

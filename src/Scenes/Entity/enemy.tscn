@@ -9,8 +9,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_thqx5"]
 shader = ExtResource("4_76rr6")
 shader_parameter/deformation = Vector2(0, 0)
-shader_parameter/sideFactor = 5.0
-shader_parameter/knockbackFactor = 0.4
+shader_parameter/knockbackFactor = 2.0
 
 [node name="Enemy" instance=ExtResource("1_4cpik")]
 collision_layer = 4

@@ -12,17 +12,24 @@ public partial class Bullet : Node2D
 	public Vector2 velocity;
 	public Vector2 target;
 
-	public override void _Ready()
-	{
-		//body.LookAt(GetGlobalMousePosition());
-		//target = GetGlobalMousePosition();
-	}
+    [Export] private Sprite2D sprite;
 
-	public override void _PhysicsProcess (double delta)
+    public override void _Ready()
+	{
+        //body.LookAt(GetGlobalMousePosition());
+        //target = GetGlobalMousePosition();
+
+        //sprite = GetNode<Sprite2D>("Sprite");
+    }
+
+    public override void _PhysicsProcess (double delta)
 	{
 		if ((lifespan -= delta) <= 0)
 			QueueFree();
 
 		GlobalPosition += Transform.X.Normalized() * (float)delta * speed;
-	}
+
+        //sprite.Rotate();
+        sprite.Rotate((float)delta * Mathf.DegToRad(360));
+    }
 }

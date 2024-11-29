@@ -17,10 +17,8 @@ public partial class Enemy : Entity
     {
         base._Ready();
         Target = Globals.player;
-        //wobble = (ShaderMaterial)GetNode<Sprite2D>("Sprite").Material;
 
-       
-        // Ensure each enemy has its unique ShaderMaterial
+        // each enemy has its unique ShaderMaterial
         Sprite2D sprite = GetNode<Sprite2D>("Sprite");
         sprite.Material = sprite.Material.Duplicate() as ShaderMaterial;
         wobble = (ShaderMaterial)sprite.Material;
@@ -72,20 +70,19 @@ public partial class Enemy : Entity
         TakeDamage(bullet.damage);
 
         // deformation parameters
-        Vector2 direction = GlobalPosition - hitbox.GlobalPosition;
-        Vector2 deformationDirection = direction.Normalized();
-        Vector2 deformationScale = 0.3f * deformationDirection;
+        Vector2 direction = (GlobalPosition - hitbox.GlobalPosition).Normalized();
+        Vector2 deformation = direction * 0.3f;
+        float deformDuration = 0.1f;
 
         // begin deform
-        float deformDuration = 0.1f;
-        DeformSprite(Vector2.Zero, deformationScale, deformDuration);
+        DeformSprite(Vector2.Zero, deformation, deformDuration);
 
         // revert deform
         Timer timer = new Timer();
         AddChild(timer);
         timer.WaitTime = deformDuration;
         timer.OneShot = true;
-        timer.Timeout += () => DeformSprite(deformationScale, Vector2.Zero, deformDuration);
+        timer.Timeout += () => DeformSprite(deformation, Vector2.Zero, deformDuration);
         timer.Start();
 
         // blood splatter
