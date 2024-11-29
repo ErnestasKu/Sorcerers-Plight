@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cdvygmme8j6hv"]
 
-[ext_resource type="Texture2D" uid="uid://bvikpstvgksg1" path="res://Scenes/FX/heal dust.png" id="1_68urr"]
+[ext_resource type="Texture2D" uid="uid://bvikpstvgksg1" path="res://Assets/Textures/heal dust.png" id="1_0sb0v"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w04h3"]
 particles_animation = true
@@ -22,7 +22,7 @@ scale = Vector2(5, 5)
 amount = 32
 lifetime = 10.0
 speed_scale = 0.5
-texture = ExtResource("1_68urr")
+texture = ExtResource("1_0sb0v")
 direction = Vector2(0, 1)
 gravity = Vector2(0, -40)
 initial_velocity_min = 25.0

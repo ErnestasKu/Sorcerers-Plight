@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bint70d4gt2mp"]
+[gd_scene load_steps=7 format=3 uid="uid://bint70d4gt2mp"]
 
 [ext_resource type="PackedScene" uid="uid://cedngylwcsxof" path="res://Scenes/Entity/entity.tscn" id="1_4cpik"]
 [ext_resource type="Script" path="res://Scenes/Entity/Enemy.cs" id="2_yrh3u"]
 [ext_resource type="Texture2D" uid="uid://bn3lv44fqa44e" path="res://Assets/Textures/snake.png" id="3_f2j6q"]
 [ext_resource type="PackedScene" uid="uid://6sopw6gnkdwa" path="res://Scenes/FX/blood_splatter.tscn" id="3_kcuie"]
+[ext_resource type="Shader" path="res://Scenes/FX/enemy_wobble.gdshader" id="4_76rr6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_thqx5"]
+shader = ExtResource("4_76rr6")
+shader_parameter/deformation = Vector2(0, 0)
+shader_parameter/sideFactor = 5.0
+shader_parameter/knockbackFactor = 0.4
 
 [node name="Enemy" instance=ExtResource("1_4cpik")]
 collision_layer = 4
@@ -12,6 +19,7 @@ script = ExtResource("2_yrh3u")
 BloodScene = ExtResource("3_kcuie")
 
 [node name="Sprite" parent="." index="0"]
+material = SubResource("ShaderMaterial_thqx5")
 texture = ExtResource("3_f2j6q")
 
 [node name="Collision" parent="." index="1"]

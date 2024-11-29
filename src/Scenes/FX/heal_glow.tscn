@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dwx64rkbq5ie4"]
 
-[ext_resource type="Texture2D" uid="uid://cm8vlnp33okn7" path="res://Scenes/FX/light_plus.png" id="1_diwsj"]
-[ext_resource type="Texture2D" uid="uid://k8hev6ljii6m" path="res://Scenes/FX/vortex.png" id="2_qpjw3"]
+[ext_resource type="Texture2D" uid="uid://cm8vlnp33okn7" path="res://Assets/Textures/light_plus.png" id="2_2mimk"]
 [ext_resource type="Script" path="res://Scenes/FX/HealGlow.cs" id="2_uyk7d"]
+[ext_resource type="Texture2D" uid="uid://k8hev6ljii6m" path="res://Assets/Textures/vortex.png" id="3_v0cji"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_uo157"]
 blend_mode = 1
@@ -32,7 +32,7 @@ material = SubResource("CanvasItemMaterial_uo157")
 amount = 12
 speed_scale = 2.0
 local_coords = true
-texture = ExtResource("1_diwsj")
+texture = ExtResource("2_2mimk")
 emission_shape = 1
 emission_sphere_radius = 25.0
 gravity = Vector2(0, -70)
@@ -46,7 +46,7 @@ z_index = -1
 material = SubResource("CanvasItemMaterial_mb7rw")
 amount = 16
 local_coords = true
-texture = ExtResource("2_qpjw3")
+texture = ExtResource("3_v0cji")
 gravity = Vector2(0, 0)
 angular_velocity_min = -75.0
 angle_max = 360.0

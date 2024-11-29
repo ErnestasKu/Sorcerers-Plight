@@ -1,76 +1,112 @@
 using Godot;
 using System;
+using static Godot.TextServer;
 
 public partial class Enemy : Entity
 {
-	public Player Target;
-	public int Score = 1;
-	public double HitRate = 1;
-	public double HitDelay = 0;
-	public bool IsInHitboxRange = false;
-	public int DropRate = 5;
-	//[Export] public PackedScene BloodScene;// = (PackedScene)ResourceLoader.Load("res://Scenes/FX/blood_splatter.tscn");
-	//static private PackedScene BloodScene = GD.Load<PackedScene>("res://Scenes/FX/blood_splatter.tscn");
-	[Export] private PackedScene BloodScene;
+    public Player Target;
+    public int Score = 1;
+    public double HitRate = 1;
+    public double HitDelay = 0;
+    public bool IsInHitboxRange = false;
+    public int DropRate = 5;
+    private ShaderMaterial wobble;
+    [Export] private PackedScene BloodScene;
 
-	public override void _Ready()
-	{
-		base._Ready();
-		Target = Globals.player;
-	}
+    public override void _Ready()
+    {
+        base._Ready();
+        Target = Globals.player;
+        //wobble = (ShaderMaterial)GetNode<Sprite2D>("Sprite").Material;
 
-	public override void _PhysicsProcess(double _delta)
-	{
-		if (HitDelay > 0)
-			HitDelay -= _delta;
-		else
-			HitDelay = 0;
+       
+        // Ensure each enemy has its unique ShaderMaterial
+        Sprite2D sprite = GetNode<Sprite2D>("Sprite");
+        sprite.Material = sprite.Material.Duplicate() as ShaderMaterial;
+        wobble = (ShaderMaterial)sprite.Material;
+    }
 
-		if (IsInHitboxRange && HitDelay <= 0)
-		{
-			HitDelay = HitRate;
-			Target.TakeDamage(Damage);
-		}
+    public override void _PhysicsProcess(double _delta)
+    {
+        if (HitDelay > 0)
+            HitDelay -= _delta;
+        else
+            HitDelay = 0;
 
-		UpdateHealthbar();
-		Move();
-	}
+        if (IsInHitboxRange && HitDelay <= 0)
+        {
+            HitDelay = HitRate;
+            Target.TakeDamage(Damage);
+        }
 
-	public override void Move()
-	{
-		var direction = GlobalPosition.DirectionTo(Target.GlobalPosition);
-		Velocity = direction * Speed;
-		base.Move();
-	}
+        UpdateHealthbar();
+        Move();
+    }
 
-	public override void Die()
-	{
-		Globals.Main.IncreaseScoreBy(Score);
-		Globals.Main.UpdateScoreboard();
-		Random random = new Random();
-		if (random.Next(99) < DropRate)
-		{
-			PowerUpDrop powerUpDrop = Globals.PowerUpScene.Instantiate<PowerUpDrop>();
-			Globals.Main.CallDeferred(Node.MethodName.AddChild, powerUpDrop);
-			powerUpDrop.GlobalPosition = GlobalPosition;
-		}
-		QueueFree();
+    public override void Move()
+    {
+        var direction = GlobalPosition.DirectionTo(Target.GlobalPosition);
+        Velocity = direction * Speed;
+        base.Move();
+    }
 
-	}
+    public override void Die()
+    {
+        Globals.Main.IncreaseScoreBy(Score);
+        Globals.Main.UpdateScoreboard();
+        Random random = new Random();
+        if (random.Next(99) < DropRate)
+        {
+            PowerUpDrop powerUpDrop = Globals.PowerUpScene.Instantiate<PowerUpDrop>();
+            Globals.Main.CallDeferred(Node.MethodName.AddChild, powerUpDrop);
+            powerUpDrop.GlobalPosition = GlobalPosition;
+        }
+        QueueFree();
 
-	public override void _on_hurtbox_area_entered(Area2D hitbox)
-	{
-		BloodSplatter blood = BloodScene.Instantiate<BloodSplatter>();
-		GetTree().CurrentScene.AddChild(blood);
-		blood.GlobalPosition = GlobalPosition;
-		blood.Rotation = GlobalPosition.AngleToPoint(Globals.player.GlobalPosition) + Mathf.Pi;
-		//blood.Scale = new Vector2(25, 25);
+    }
 
-		Bullet bullet = (Bullet)hitbox.GetParent();
-		TakeDamage(bullet.damage);
+    public override void _on_hurtbox_area_entered(Area2D hitbox)
+    {
+        // damage
+        Bullet bullet = (Bullet)hitbox.GetParent();
+        TakeDamage(bullet.damage);
 
-		//check for piercing
-		if (!bullet.piercing)
-			bullet.QueueFree();
-	}
+        // deformation parameters
+        Vector2 direction = GlobalPosition - hitbox.GlobalPosition;
+        Vector2 deformationDirection = direction.Normalized();
+        Vector2 deformationScale = 0.3f * deformationDirection;
+
+        // begin deform
+        float deformDuration = 0.1f;
+        DeformSprite(Vector2.Zero, deformationScale, deformDuration);
+
+        // revert deform
+        Timer timer = new Timer();
+        AddChild(timer);
+        timer.WaitTime = deformDuration;
+        timer.OneShot = true;
+        timer.Timeout += () => DeformSprite(deformationScale, Vector2.Zero, deformDuration);
+        timer.Start();
+
+        // blood splatter
+        BloodSplatter blood = BloodScene.Instantiate<BloodSplatter>();
+        GetTree().CurrentScene.AddChild(blood);
+        blood.GlobalPosition = GlobalPosition;
+        blood.Rotation = GlobalPosition.AngleToPoint(hitbox.GlobalPosition) + Mathf.Pi;
+
+        //check for piercing
+        if (!bullet.piercing)
+            bullet.QueueFree();
+    }
+
+    private void DeformSprite(Vector2 start, Vector2 end, float duration)
+    {
+        Tween tween = CreateTween();
+        tween.TweenMethod(Callable.From<Vector2>(DeformShaderCall), start, end, duration);
+    }
+
+    private void DeformShaderCall(Vector2 deformationScale)
+    {
+        wobble.SetShaderParameter("deformation", deformationScale);
+    }
 }

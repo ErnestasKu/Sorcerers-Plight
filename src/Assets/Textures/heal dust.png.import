@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm8vlnp33okn7"
-path="res://.godot/imported/light_plus.png-e5bbbb5fcbed9fd52748f2ede37f2945.ctex"
+uid="uid://bvikpstvgksg1"
+path="res://.godot/imported/heal dust.png-eda566b5bb5a431603b4e1184e6a4b44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/FX/light_plus.png"
-dest_files=["res://.godot/imported/light_plus.png-e5bbbb5fcbed9fd52748f2ede37f2945.ctex"]
+source_file="res://Assets/Textures/heal dust.png"
+dest_files=["res://.godot/imported/heal dust.png-eda566b5bb5a431603b4e1184e6a4b44.ctex"]
 
 [params]
 

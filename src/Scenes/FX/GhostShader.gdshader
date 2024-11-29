@@ -2,6 +2,7 @@ shader_type canvas_item;
 
 // -- Speed of hue shift
 uniform float speed : hint_range(0.1, 10.0) = 1.0;
+uniform float alpha : hint_range(0.0, 1.0) = 0.3;
 
 
 void fragment() {
@@ -14,8 +15,8 @@ void fragment() {
 	//COLOR = vec4(vec3(luminance), input.a);
 	
 	// -- ver 2
-	float average = (input.r + input.g + input.b) / 3.0;
-	COLOR = vec4(average, average, average, input.a);
+	//float average = (input.r + input.g + input.b) / 3.0;
+	//COLOR = vec4(average, average, average, input.a);
 	
 	
 	// -- rainbow --------------------------------------------------------------
@@ -67,5 +68,5 @@ void fragment() {
     }
 
     // -- Output the final color 
-    COLOR = vec4(rgb + m, input.a * 0.3);
+    COLOR = vec4(rgb + m, input.a * alpha);
 }
