@@ -15,7 +15,7 @@ shader_parameter/threshold = 0.739
 [node name="Bullet" type="Node2D" node_paths=PackedStringArray("sprite")]
 light_mask = 8
 visibility_layer = 8
-scale = Vector2(1.5, 1.5)
+scale = Vector2(2, 2)
 script = ExtResource("1_50bcr")
 sprite = NodePath("Sprite2D")
 

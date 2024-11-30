@@ -29,7 +29,6 @@ public partial class Bullet : Node2D
 
 		GlobalPosition += Transform.X.Normalized() * (float)delta * speed;
 
-        //sprite.Rotate();
-        sprite.Rotate((float)delta * Mathf.DegToRad(360));
+        sprite.Rotate((float)delta * Mathf.DegToRad(120));
     }
 }

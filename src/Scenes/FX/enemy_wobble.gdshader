@@ -5,11 +5,12 @@ uniform float knockbackFactor = 1.0;
 
 void vertex() {
 	vec2 dStrength = abs(deformation);
-	float sideDeformation = min(dStrength.x, dStrength.y);
 	float spriteWidth = abs(VERTEX.x);
 	
+	// ?
 	if (sign(VERTEX.y) != sign(deformation.y)){
-		//VERTEX.x += sideDeformation * spriteWidth * sign(deformation.x);
+		float sideDeformation = min(dStrength.x, dStrength.y);
+		VERTEX.x += sideDeformation * spriteWidth * sign(deformation.x);
 	}
 	
 	vec2 scale = 1.0 - dStrength;

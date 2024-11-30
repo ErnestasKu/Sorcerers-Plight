@@ -1,20 +1,50 @@
-[gd_scene load_steps=4 format=3 uid="uid://ck4qcmutoyy2f"]
+[gd_scene load_steps=9 format=3 uid="uid://ck4qcmutoyy2f"]
 
 [ext_resource type="Script" path="res://Scenes/PowerUp/PowerUpDrop.cs" id="1_nghvt"]
+[ext_resource type="Shader" path="res://Scenes/FX/power_up_effect.gdshader" id="2_0yh40"]
 [ext_resource type="Texture2D" uid="uid://7ybqpf7fjn01" path="res://Assets/Textures/power up BIG.png" id="2_lf5nu"]
+[ext_resource type="Shader" path="res://Scenes/FX/power_up_nucleus.gdshader" id="4_oi1er"]
+[ext_resource type="Texture2D" uid="uid://bar8psk66381f" path="res://Assets/Textures/projectileBig2.png" id="5_0gqbf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4bdsv"]
+shader = ExtResource("2_0yh40")
+shader_parameter/speed = 1.0
+shader_parameter/amplitude = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yggrq"]
 radius = 13.0
 
-[node name="Power up drop" type="Area2D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m0qp8"]
+shader = ExtResource("4_oi1er")
+shader_parameter/speed = 1.0
+shader_parameter/nucleaus_color = Color(1, 0.9715, 0.43, 1)
+
+[node name="Power up drop" type="Area2D" node_paths=PackedStringArray("Nucleus", "NucleusTimer")]
+light_mask = 16
+visibility_layer = 16
+scale = Vector2(1.25, 1.25)
 collision_layer = 16
 collision_mask = 2
 script = ExtResource("1_nghvt")
+NucleusSpinSpeed = 2.0
+Nucleus = NodePath("Sprite nucleus")
+NucleusTimer = NodePath("Z order timer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_4bdsv")
 texture = ExtResource("2_lf5nu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_yggrq")
+
+[node name="Sprite nucleus" type="Sprite2D" parent="."]
+z_index = 1
+material = SubResource("ShaderMaterial_m0qp8")
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("5_0gqbf")
+
+[node name="Z order timer" type="Timer" parent="."]
+autostart = true
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

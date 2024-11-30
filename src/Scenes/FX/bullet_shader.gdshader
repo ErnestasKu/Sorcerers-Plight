@@ -10,7 +10,7 @@ mat2 rotate2D(float r) {
 
 void fragment() {
     //vec2 uv = (FRAGCOORD.xy / TEXTURE_PIXEL_SIZE.y) * 0.001;
-    //vec2 uv = (FRAGCOORD.xy) * 0.02;
+    //vec2 uv = (FRAGCOORD.xy) * 0.015;
     vec2 uv = (UV.xy) * 1.0;
 	
     vec3 col = vec3(0.0);
@@ -43,7 +43,7 @@ void fragment() {
         p *= m;
         n *= m;
 		
-        q = p * S + j + n + TIME * 5.0;
+        q = p * S + j + n + TIME * 10.0;
 		
         n += sin(q);
         //N += cos(q) / S;

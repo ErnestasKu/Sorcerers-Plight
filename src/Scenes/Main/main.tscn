@@ -20,10 +20,8 @@ size = Vector2(35, 5)
 [sub_resource type="Environment" id="Environment_qavxc"]
 background_mode = 3
 tonemap_mode = 3
-glow_enabled = true
-glow_levels/3 = 0.0
 glow_levels/4 = 1.0
-glow_levels/5 = 0.0
+glow_levels/5 = 16.0
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("Scoreboard")]
 script = ExtResource("1_l0j83")
