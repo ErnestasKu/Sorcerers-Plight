@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\12345\\OneDrive\\Documents\\GitHub\\Sorcerers-Plight\\src\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|c:\\users\\12345\\onedrive\\documents\\github\\sorcerers-plight\\src\\scenes\\powerup\\powerupdrop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|solutionrelative:scenes\\powerup\\powerupdrop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|c:\\users\\12345\\onedrive\\documents\\github\\sorcerers-plight\\src\\scenes\\other\\pause_ui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|solutionrelative:scenes\\other\\pause_ui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|c:\\users\\12345\\onedrive\\documents\\github\\sorcerers-plight\\src\\scenes\\entity\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -15,8 +15,8 @@
       "RelativeMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|solutionrelative:scenes\\powerup\\power_up.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|c:\\users\\12345\\onedrive\\documents\\github\\sorcerers-plight\\src\\scenes\\other\\pause_ui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|solutionrelative:scenes\\other\\pause_ui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|c:\\users\\12345\\onedrive\\documents\\github\\sorcerers-plight\\src\\scenes\\powerup\\powerupdrop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|solutionrelative:scenes\\powerup\\powerupdrop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{718F9294-1412-4295-ABCE-B935E41CA929}|Gaaame.csproj|c:\\users\\12345\\onedrive\\documents\\github\\sorcerers-plight\\src\\scenes\\fx\\healglow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -90,7 +90,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Document",
@@ -154,12 +154,11 @@
               "RelativeToolTip": "Scenes\\FX\\HealGlow.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-28T17:14:59.994Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-28T17:14:59.994Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "PowerUpDrop.cs",
               "DocumentMoniker": "C:\\Users\\12345\\OneDrive\\Documents\\GitHub\\Sorcerers-Plight\\src\\Scenes\\PowerUp\\PowerUpDrop.cs",
               "RelativeDocumentMoniker": "Scenes\\PowerUp\\PowerUpDrop.cs",
@@ -178,7 +177,7 @@
               "RelativeDocumentMoniker": "Scenes\\Entity\\Enemy.cs",
               "ToolTip": "C:\\Users\\12345\\OneDrive\\Documents\\GitHub\\Sorcerers-Plight\\src\\Scenes\\Entity\\Enemy.cs",
               "RelativeToolTip": "Scenes\\Entity\\Enemy.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAACAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2023-12-09T23:55:56.416Z",
               "EditorCaption": ""
@@ -227,20 +226,20 @@
               "RelativeDocumentMoniker": "Scenes\\PowerUp\\Power_up.cs",
               "ToolTip": "C:\\Users\\12345\\OneDrive\\Documents\\GitHub\\Sorcerers-Plight\\src\\Scenes\\PowerUp\\Power_up.cs",
               "RelativeToolTip": "Scenes\\PowerUp\\Power_up.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC4AAAAkAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAC4AAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2023-12-14T04:21:03.911Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "pause_ui.cs",
               "DocumentMoniker": "C:\\Users\\12345\\OneDrive\\Documents\\GitHub\\Sorcerers-Plight\\src\\Scenes\\Other\\pause_ui.cs",
               "RelativeDocumentMoniker": "Scenes\\Other\\pause_ui.cs",
               "ToolTip": "C:\\Users\\12345\\OneDrive\\Documents\\GitHub\\Sorcerers-Plight\\src\\Scenes\\Other\\pause_ui.cs",
               "RelativeToolTip": "Scenes\\Other\\pause_ui.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAABoAAAAgAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2023-12-14T02:24:08.773Z",
               "EditorCaption": ""

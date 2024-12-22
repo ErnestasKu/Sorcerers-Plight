@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://chrqv46bodu7i"]
+
+[ext_resource type="Shader" path="res://Scenes/FX/pause_fx.gdshader" id="1_0jxm6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_433do"]
+shader = ExtResource("1_0jxm6")
+shader_parameter/additional_zoom = 1.0
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_433do")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

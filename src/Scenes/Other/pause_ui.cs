@@ -3,10 +3,16 @@ using System;
 
 public partial class pause_ui : Panel
 {
+    [Export] private CanvasLayer Canvas;
     [Export] private Label MaxHP;
     [Export] private Label Damage;
     [Export] private Label Speed;
     [Export] private Label FireRate;
+
+    public override void _Ready()
+    {
+        UnpauseGame();
+    }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
@@ -24,6 +30,7 @@ public partial class pause_ui : Panel
     public void PauseGame()
     {
         this.Visible = true;
+        Canvas.Visible = true;
         GetTree().Paused = true;
         UpdateStats();
     }
@@ -32,6 +39,7 @@ public partial class pause_ui : Panel
     public void UnpauseGame()
     {
         this.Visible = false;
+        Canvas.Visible = false;
         GetTree().Paused = false;
     }
 
