@@ -1,4 +1,5 @@
 using Godot;
+using Microsoft.VisualBasic;
 using System;
 using static Godot.TextServer;
 
@@ -11,6 +12,7 @@ public partial class Enemy : Entity
     public bool IsInHitboxRange = false;
     public int DropRate = 5;
     private ShaderMaterial wobble;
+    [Export] private ShaderMaterial deathShader;
     [Export] private PackedScene BloodScene;
 
     public override void _Ready()
@@ -50,6 +52,8 @@ public partial class Enemy : Entity
 
     public override void Die()
     {
+        isAlive = false;
+
         Globals.Main.IncreaseScoreBy(Score);
         Globals.Main.UpdateScoreboard();
         Random random = new Random();
@@ -59,12 +63,26 @@ public partial class Enemy : Entity
             Globals.Main.CallDeferred(Node.MethodName.AddChild, powerUpDrop);
             powerUpDrop.GlobalPosition = GlobalPosition;
         }
-        QueueFree();
+
+        // begin death
+        IsMobile = false;
+
+
+        Sprite2D sprite = GetNode<Sprite2D>("Sprite");
+        sprite.Material = deathShader;
+        sprite.Material = sprite.Material.Duplicate() as ShaderMaterial;
+        deathShader = (ShaderMaterial)sprite.Material;
+
+        Disintegrate(1f, -1f, 0.5f);
+        //QueueFree();
 
     }
 
     public override void _on_hurtbox_area_entered(Area2D hitbox)
     {
+        if (!isAlive)
+            return;
+
         // damage
         Bullet bullet = (Bullet)hitbox.GetParent();
         TakeDamage(bullet.damage);
@@ -105,5 +123,17 @@ public partial class Enemy : Entity
     private void DeformShaderCall(Vector2 deformationScale)
     {
         wobble.SetShaderParameter("deformation", deformationScale);
+    }
+
+    private void Disintegrate(float start, float end, float duration)
+    {
+        Tween tween = CreateTween();
+        tween.TweenMethod(Callable.From<float>(DisintegrateShaderCall), start, end, duration);
+
+    }
+
+    private void DisintegrateShaderCall(float end)
+    {
+        deathShader.SetShaderParameter("dissolve", end);
     }
 }

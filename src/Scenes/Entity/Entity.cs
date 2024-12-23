@@ -16,6 +16,7 @@ public partial class Entity : CharacterBody2D
     public bool IsDamageable = true;
     public bool IsMobile = true;
     public ProgressBar Healthbar;
+    public bool isAlive = true;
 
     public virtual void Die()
     {
