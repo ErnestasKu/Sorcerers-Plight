@@ -20,6 +20,7 @@ Speed = NodePath("MarginContainer/Background/Margin yellow/ColorRect/Margin purp
 FireRate = NodePath("MarginContainer/Background/Margin yellow/ColorRect/Margin purple/ColorRect/HSplitContainer/Margin yellow/ColorRect/Margin data/VBoxContainer/Fire rate")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("2_gsccp")]
+visible = false
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

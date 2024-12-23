@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 uniform float dissolve : hint_range(-1.0, 1.0) = 1;
-uniform float fragment_number = 20;
+uniform float fragment_number = 12;
 
 void fragment() {
 	

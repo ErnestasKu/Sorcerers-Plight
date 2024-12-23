@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://c48pu54p05kv4"]
+[gd_scene load_steps=16 format=3 uid="uid://c48pu54p05kv4"]
 
 [ext_resource type="Script" path="res://Scenes/Main/main.cs" id="1_l0j83"]
 [ext_resource type="Texture2D" uid="uid://ribrdb6xh5k" path="res://Assets/Textures/background_blue_path.png" id="2_7dv5k"]
+[ext_resource type="PackedScene" uid="uid://cxebu8kbg2u62" path="res://Scenes/FX/glitch_effect.tscn" id="3_doqbw"]
 [ext_resource type="SystemFont" uid="uid://djkji45kpbyal" path="res://Scenes/Other/pause_ui_font.tres" id="5_6wy7i"]
 [ext_resource type="PackedScene" uid="uid://chg6jghq0sdqa" path="res://Scenes/Entity/player.tscn" id="5_mgvr8"]
 [ext_resource type="Texture2D" uid="uid://bjmcu4hil4gnk" path="res://Assets/Textures/caster.png" id="6_6o4cq"]
@@ -40,7 +41,9 @@ region_rect = Rect2(0, 400, 10000, 10000)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="CanvasLayer" parent="CanvasLayer" instance=ExtResource("7_x2h4r")]
+[node name="Glitch" parent="CanvasLayer" instance=ExtResource("3_doqbw")]
+
+[node name="TV thing" parent="CanvasLayer" instance=ExtResource("7_x2h4r")]
 
 [node name="Score UI" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -111,7 +114,8 @@ limit_right = 5000
 limit_bottom = 5000
 editor_draw_limits = true
 
-[node name="Player" parent="." node_paths=PackedStringArray("powerUpUI") instance=ExtResource("5_mgvr8")]
+[node name="Player" parent="." node_paths=PackedStringArray("DashGlitchCanvas", "powerUpUI") instance=ExtResource("5_mgvr8")]
+DashGlitchCanvas = NodePath("../CanvasLayer/Glitch")
 powerUpUI = NodePath("../CanvasLayer/Power Up UI")
 DashScene = null
 

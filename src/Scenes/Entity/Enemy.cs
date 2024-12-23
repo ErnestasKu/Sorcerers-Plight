@@ -33,7 +33,7 @@ public partial class Enemy : Entity
         else
             HitDelay = 0;
 
-        if (IsInHitboxRange && HitDelay <= 0)
+        if (IsInHitboxRange && HitDelay <= 0 && isAlive)
         {
             HitDelay = HitRate;
             Target.TakeDamage(Damage);
@@ -74,8 +74,14 @@ public partial class Enemy : Entity
         deathShader = (ShaderMaterial)sprite.Material;
 
         Disintegrate(1f, -1f, 0.5f);
-        //QueueFree();
 
+        // queue free
+        Timer timer = new Timer();
+        AddChild(timer);
+        timer.WaitTime = 0.5f;
+        timer.OneShot = true;
+        timer.Start();
+        timer.Timeout += QueueFree;
     }
 
     public override void _on_hurtbox_area_entered(Area2D hitbox)

@@ -29,6 +29,8 @@ public partial class Player : Entity
     [Export] private Timer DashTimer;
     [Export] private Timer DashCooldownTimer;
     [Export] private Timer DashGhostTimer;
+    [Export] private CanvasLayer DashGlitchCanvas;
+    private ShaderMaterial DashGlitchShader;
 
     [Export] private Timer HealDelayTimer;
     [Export] private Timer HealTickTimer;
@@ -69,6 +71,9 @@ public partial class Player : Entity
         caster = (Godot.Node2D)GetNode("Caster");
         bulletScene = GD.Load<PackedScene>("res://Scenes/Bullet/bullet.tscn");
         DashScene = GD.Load<PackedScene>("res://Scenes/FX/dashEffect.tscn");
+
+        ColorRect colRect = (ColorRect)DashGlitchCanvas.FindChild("ColorRect");
+        DashGlitchShader = (ShaderMaterial)colRect.Material;
     }
 
     // Allows movement in 4 cardinal directions
@@ -142,6 +147,7 @@ public partial class Player : Entity
             IsDashing = true;
             DashTimer.Start();
             DashGhostTimer.Start();
+            StartDashGlitch();
         }
     }
 
@@ -245,5 +251,16 @@ public partial class Player : Entity
     public override void Die()
     {
         GetTree().ChangeSceneToFile("res://Scenes/Main/game_over.tscn");
+    }
+
+    public void StartDashGlitch()
+    {
+        Tween tween = CreateTween();
+        tween.TweenMethod(Callable.From<float>(GlitchShaderCall), 6.0, 0.0, DashCooldownTimer.WaitTime);
+    }
+
+    private void GlitchShaderCall(float end)
+    {
+        DashGlitchShader.SetShaderParameter("strength", end);
     }
 }

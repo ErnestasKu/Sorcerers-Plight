@@ -1,6 +1,5 @@
 shader_type canvas_item;
 
-// Declare SCREEN_TEXTURE with hint_screen_texture
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture;
 uniform float additional_zoom = 1;
 
