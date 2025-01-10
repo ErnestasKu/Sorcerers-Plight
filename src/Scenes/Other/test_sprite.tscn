@@ -5,11 +5,17 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rp2gi"]
 shader = ExtResource("1_xj71v")
+shader_parameter/scale = 1.0
+shader_parameter/swirl = 0.0
 shader_parameter/dissolve = 1.0
 shader_parameter/fragment_number = 24.0
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D desint" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_rp2gi")
+texture = ExtResource("2_wxta4")
+
+[node name="Sprite2D2 swirl" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_rp2gi")
 texture = ExtResource("2_wxta4")

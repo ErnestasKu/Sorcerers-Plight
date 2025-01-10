@@ -129,8 +129,7 @@
               "ViewState": "AQIAANwAAAAAAAAAAAAjwOMAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2023-12-02T19:03:04.558Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -143,8 +142,7 @@
               "ViewState": "AQIAABoAAAAAAAAAAAAjwBIAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2023-12-09T23:50:41.826Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -178,7 +176,7 @@
               "RelativeDocumentMoniker": "Scenes\\Entity\\Enemy.cs",
               "ToolTip": "C:\\Users\\12345\\OneDrive\\Documents\\GitHub\\Sorcerers-Plight\\src\\Scenes\\Entity\\Enemy.cs",
               "RelativeToolTip": "Scenes\\Entity\\Enemy.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAADwvyMAAAA3AAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2023-12-09T23:55:56.416Z",
               "EditorCaption": ""
@@ -193,8 +191,7 @@
               "RelativeToolTip": "Scenes\\Bullet\\bullet_r.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T22:09:30.405Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-06T22:09:30.405Z"
             },
             {
               "$type": "Document",

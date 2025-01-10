@@ -52,6 +52,8 @@ public partial class Enemy : Entity
 
     public override void Die()
     {
+        // begin death
+        IsMobile = false;
         isAlive = false;
 
         Globals.Main.IncreaseScoreBy(Score);
@@ -64,24 +66,34 @@ public partial class Enemy : Entity
             powerUpDrop.GlobalPosition = GlobalPosition;
         }
 
-        // begin death
-        IsMobile = false;
-
-
+        // get shader
         Sprite2D sprite = GetNode<Sprite2D>("Sprite");
         sprite.Material = deathShader;
         sprite.Material = sprite.Material.Duplicate() as ShaderMaterial;
         deathShader = (ShaderMaterial)sprite.Material;
 
-        Disintegrate(1f, -1f, 0.5f);
+        // duration
+        float animTime1 = 0.4f;
+        float animTime2 = 0.8f;
 
-        // queue free
+        // implode
+        Implode(animTime1);
+
+        // disintegrate
         Timer timer = new Timer();
         AddChild(timer);
-        timer.WaitTime = 0.5f;
+        timer.WaitTime = animTime1;
         timer.OneShot = true;
         timer.Start();
-        timer.Timeout += QueueFree;
+        timer.Timeout += () => Explode(animTime2 - 0.2f);
+
+        // queue free
+        Timer timerQ = new Timer();
+        AddChild(timerQ);
+        timerQ.WaitTime = animTime2;
+        timerQ.OneShot = true;
+        timerQ.Start();
+        timerQ.Timeout += QueueFree;
     }
 
     public override void _on_hurtbox_area_entered(Area2D hitbox)
@@ -120,6 +132,7 @@ public partial class Enemy : Entity
             bullet.QueueFree();
     }
 
+    // deformation
     private void DeformSprite(Vector2 start, Vector2 end, float duration)
     {
         Tween tween = CreateTween();
@@ -131,15 +144,57 @@ public partial class Enemy : Entity
         wobble.SetShaderParameter("deformation", deformationScale);
     }
 
-    private void Disintegrate(float start, float end, float duration)
+    // implosion
+    private void Implode(float duration)
     {
-        Tween tween = CreateTween();
-        tween.TweenMethod(Callable.From<float>(DisintegrateShaderCall), start, end, duration);
-
+        Tween tween1 = CreateTween();
+        Tween tween2 = CreateTween();
+        tween1.TweenMethod(Callable.From<float>(SwirlShaderCall), 0f, 1f, duration);
+        tween2.TweenMethod(Callable.From<float>(ScaleShaderCall), 1f, 0f, duration);
+        //tween.TweenMethod(Callable.From<float>(IMPLODE_CALL), start, end, duration);
     }
 
-    private void DisintegrateShaderCall(float end)
+    // disintegration
+    private void Explode(float duration)
     {
-        deathShader.SetShaderParameter("dissolve", end);
+        //Tween tween = CreateTween();
+        //SwirlShaderCall(0);
+        //ScaleShaderCall(1);
+        //tween.TweenMethod(Callable.From<float>(EXPLODE_CALL), start, end, duration);
+
+        SwirlShaderCall(0f);
+        Tween tween0 = CreateTween();
+        tween0.TweenMethod(Callable.From<float>(SwirlShaderCall), 0f, 0f, duration);
+        Tween tween1 = CreateTween();
+        Tween tween2 = CreateTween();
+        tween1.TweenMethod(Callable.From<float>(ScaleShaderCall), 0f, 4f, duration);
+        tween2.TweenMethod(Callable.From<float>(DisintegrateShaderCall), 1f, -1f, duration);
+    }
+
+    private void IMPLODE_CALL(float value)
+    {
+        SwirlShaderCall(value);
+        ScaleShaderCall(1f - value);
+    }
+
+    private void EXPLODE_CALL(float value)
+    {
+        ScaleShaderCall(2 - (value + 1));
+        DisintegrateShaderCall(value);
+    }
+
+    private void ScaleShaderCall(float value)
+    {
+        deathShader.SetShaderParameter("scale", value);
+    }
+
+    private void SwirlShaderCall(float value)
+    {
+        deathShader.SetShaderParameter("swirl", value);
+    }
+
+    private void DisintegrateShaderCall(float value)
+    {
+        deathShader.SetShaderParameter("dissolve", value);
     }
 }
