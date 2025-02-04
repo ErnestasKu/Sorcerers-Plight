@@ -9,6 +9,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lq1te"]
 shader = ExtResource("3_jbsjl")
+shader_parameter/scale = 1.0
+shader_parameter/swirl = 0.0
 shader_parameter/dissolve = 1.0
 shader_parameter/fragment_number = 20.0
 

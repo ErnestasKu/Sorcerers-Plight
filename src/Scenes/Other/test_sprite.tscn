@@ -6,7 +6,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rp2gi"]
 shader = ExtResource("1_xj71v")
 shader_parameter/scale = 1.0
-shader_parameter/swirl = 0.0
+shader_parameter/swirl = 0.087
 shader_parameter/dissolve = 1.0
 shader_parameter/fragment_number = 24.0
 
